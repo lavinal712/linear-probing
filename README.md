@@ -20,9 +20,9 @@ The code can be simply modified to evaluate other models with few code changes.
 
 The evaluation is done on the ImageNet-1K. The results are as follows:
 
-| Model         | Top-1 Accuracy | Top-5 Accuracy | Batch Size | Seed |
-|---------------|----------------|----------------|------------|------|
-| CLIP-ViT-L/14 | 83.9           | -              | 512        | 0    |
+| Model         | Top-1 Accuracy | Top-5 Accuracy | Batch Size | Seed | Epochs |
+|---------------|----------------|----------------|------------|------|--------|
+| CLIP-ViT-L/14 | 83.9           | 97.3           | 512        | 0    | 7      |
 
 
 ## Acknowledgements
