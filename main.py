@@ -33,6 +33,7 @@ class LinearClassifier(nn.Module):
     def __init__(self, dim, num_labels=1000):
         super(LinearClassifier, self).__init__()
         self.num_labels = num_labels
+        self.bn = nn.BatchNorm1d(dim, affine=False, eps=1e-6)
         self.linear = nn.Linear(dim, num_labels)
         self.linear.weight.data.normal_(mean=0.0, std=0.01)
         self.linear.bias.data.zero_()
@@ -42,6 +43,7 @@ class LinearClassifier(nn.Module):
         x = x.view(x.size(0), -1)
 
         # linear layer
+        x = self.bn(x)
         return self.linear(x)
 
 
