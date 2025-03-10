@@ -196,10 +196,12 @@ def main(args):
     linear_classifier.to(device)
 
     model_without_ddp = model
-    n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    n_parameters = sum(p.numel() for p in model.parameters())
+    n_trainable_parameters = sum(p.numel() for p in linear_classifier.parameters())
 
     print("Model = %s" % str(model_without_ddp))
-    print('number of params (M): %.2f' % (n_parameters / 1.e6))
+    print("number of params (M): %.2f" % (n_parameters / 1.e6))
+    print("number of trainable params (M): %.2f" % (n_trainable_parameters / 1.e6))
 
     eff_batch_size = args.batch_size * args.accum_iter * misc.get_world_size()
 
