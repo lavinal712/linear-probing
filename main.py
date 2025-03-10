@@ -200,7 +200,7 @@ def main(args):
     n_trainable_parameters = sum(p.numel() for p in linear_classifier.parameters())
 
     print("Model = %s" % str(model_without_ddp))
-    print("number of params (M): %.2f" % (n_parameters / 1.e6))
+    print("number of model's params (M): %.2f" % (n_parameters / 1.e6))
     print("number of trainable params (M): %.2f" % (n_trainable_parameters / 1.e6))
 
     eff_batch_size = args.batch_size * args.accum_iter * misc.get_world_size()
