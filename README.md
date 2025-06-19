@@ -1,9 +1,17 @@
 # Linear Probing
 
+## Setup
+
+```bash
+conda create -n linear-probing python=3.10 -y
+conda activate linear-probing
+pip install -r requirements.txt
+```
+
 This repository contains a simple implementation of linear probing for CLIP models. To evaluate CLIP-ViT-L/14, run:
 
 ```bash
-python main.py \
+torchrun --nproc_per_node=4 --nnodes=1 main.py \
     --batch_size 512 \
     --model openai/clip-vit-large-patch14 \
     --embed_dim 1024 \
